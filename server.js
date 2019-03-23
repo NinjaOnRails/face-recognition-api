@@ -10,14 +10,13 @@ const user = require('./controllers/user');
 const image = require('./controllers/image');
 
 const PORT = process.env.PORT || 3000;
+const DATABASE_URL = process.env.DATABSE_URL || '127.0.0.1';
 
 const db = knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
-    user: 'macintosh',
-    password: '',
-    database: 'face-recognition'
+    connectionString: DATABASE_URL,
+    ssl: true
   }
 });
 
